@@ -1,0 +1,16 @@
+[
+{
+  "modid": "statusmod",
+  "name": "Status Mod",
+  "description": "Forge mod that posts Status of a Server to Discord.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["FNet"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
