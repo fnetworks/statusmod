@@ -10,7 +10,6 @@ script: ./gradlew build -S
 cache:
   directories:
     - '$HOME/.m2/repository'
-    - '$HOME/.sonar/cache'
     - '$HOME/.gradle'
     - '.gradle'
 env:
@@ -18,3 +17,14 @@ env:
     TERM=dumb
 notifications:
   email: false
+  webhook: http://codenametmd.bplaced.com/dev/travis-ci.php
+deploy:
+  provider: releases
+  api_key:
+        secure: MI0Ae3izY3aSJfg3FDWV8g+eq30gt9sX/L2BdE9o9wqaE2wdbf21ny8/mx+mzOMhqxd9JNYwRkE8+tUCc79JcGTu1Vb0xyQqPterEe5EAqV08QW1/mI02zj4L6tVqnz4Y+dK8kEZoJDxmjGcWSfHW1TzwpFfU5zL+h9Gq7A8KLR2XgLIPJQ6XSbxQCYjnK0/5NP6BxlH0Lv8jerEECpAEaF5gAlt5x95liGTnJCpEDx4c9vnnwtqYxzXmyhhaRMM44ranerZyJfuX4KRewtwDFmLDY9bduswlvkwzGDgQCI7QTlbRhmDVennFBy8H5WU7fF/lth8NIBR6OO4PGvcEbx9VH0xFqqvPtGtQeelBwGKMhynBJE+JQQdEwSglepnprR42XqmY6xjSpnmUgTlLsd3aZMeMqGppAbM4hJ1GSxdpYEYYbLCCzcEZF87zHRp7dpF7DZcbvWrYtdUYNjCvnb0sF9GkpQddQnmQD+0J1gVAF40az2EZUCrzcLfWhm/ihmJvAeMeDzv3E1LjbzUqBhwo9Z4sw4Ez1sMPvn8DAldsDF27n9r6o2xX5Fgcg9dU3qO0QCWm22JodiASbCD4i3CfwG8O7OQHsiVR29kZth6jQ0HLMZpRNW5UughK+V003JHVY6fo2PmwlH1Jnk/cNT/bpetnSzKy4RF10r5POk=
+  file: build/libs/statusmod-1.0.jar
+  skip_cleanup: true
+  on:
+    repo: fnetworks/statusmod
+    branch: master
+    tags: false
