@@ -28,7 +28,7 @@ import org.apache.http.util.EntityUtils;
 import org.apache.logging.log4j.Level;
 
 @Mod(modid = "statusmod", version = "1.0", name = "Status Mod", acceptableRemoteVersions = "*", acceptedMinecraftVersions = "1.7.10")
-public class ExampleMod {
+public class StatusMod {
 	private final Gson gson = new Gson();
 	private URL webhookURL = null;
 
@@ -46,7 +46,7 @@ public class ExampleMod {
 
 	@EventHandler
 	public void serverStarted(FMLServerStartedEvent e) {
-		if (e.getSide() == Side.SERVER) {
+		if (e.getSide() == Side.SERVER && webhookURL != null) {
 			try {
 				sendMessage("Server is online!");
 			} catch (Exception ex) {
@@ -57,7 +57,7 @@ public class ExampleMod {
 
 	@EventHandler
 	public void serverStopped(FMLServerStoppingEvent e) {
-		if (e.getSide() == Side.SERVER) {
+		if (e.getSide() == Side.SERVER && webhookURL != null) {
 			try {
 				sendMessage("Server went offline");
 			} catch (Exception ex) {
